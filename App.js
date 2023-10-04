@@ -12,12 +12,15 @@ export default function App() {
       <Text style={styles.explainText}>Enter your name</Text>
       <TextInput
         style={styles.input}
+        multiline
+        keyboardType='default'
         placeholder='e.g. John Doe'
         onChangeText={(val) => setName(val)}
       />
       <Text style={styles.explainText}>Enter your age</Text>
       <TextInput
         style={styles.input}
+        keyboardType='numeric'
         placeholder='e.g. 30'
         onChangeText={(val) => setAge(val)}
       />
