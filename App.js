@@ -1,9 +1,9 @@
 import React,{useState} from 'react';
 import { StyleSheet, Text, View, FlatList} from 'react-native';
 import Header from './components/header';
+import TodoItem from './components/todoItem';
 
-
-// https://www.youtube.com/watch?v=uLHFPt9B2Os&list=PL4cUxeGkcC9ixPU-QkScoRBVxtPPzVjrQ&index=10
+// https://www.youtube.com/watch?v=SGEitne8N-Q&list=PL4cUxeGkcC9ixPU-QkScoRBVxtPPzVjrQ&index=10&pp=iAQB
 
 export default function App() {
 
@@ -14,20 +14,22 @@ export default function App() {
     {text:'ddd', key:'4'},
   ]);
 
-// () => () means return jsx
-
+  const pressHandler = (key) => {
+    setTodos((prevTodos) => {
+      return prevTodos.filter(todo => todo.key != key);
+    })
+  }
 
   return (
     <View style={styles.container}>
       <Header/>
-
       <View style={styles.content}>
         {/* to do form */}
         <View style={styles.list}>
           <FlatList
             data={todos}
-            renderItem={( { item } ) => (
-              <Text> {item.text}</Text>
+            renderItem={({item}) => (
+              <TodoItem item={item} pressHandler={pressHandler} />
             )}
           />
         </View>
@@ -47,7 +49,5 @@ const styles = StyleSheet.create({
   },
   list: {
     marginTop: 20,
-    backgroundColor: '#777',
-  },
-
+  }
 });

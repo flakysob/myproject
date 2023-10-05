@@ -1,8 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View} from 'react-native';
 
-// https://www.youtube.com/watch?v=uLHFPt9B2Os&list=PL4cUxeGkcC9ixPU-QkScoRBVxtPPzVjrQ&index=10
-
+// https://www.youtube.com/watch?v=SGEitne8N-Q&list=PL4cUxeGkcC9ixPU-QkScoRBVxtPPzVjrQ&index=10&pp=iAQB
 
 export default function Header(){
     return(
