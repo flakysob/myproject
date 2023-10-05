@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import { StyleSheet, Text, View, FlatList} from 'react-native';
 import Header from './components/header';
 import TodoItem from './components/todoItem';
+import AddTodo from './components/addTodo';
 
 // https://www.youtube.com/watch?v=SGEitne8N-Q&list=PL4cUxeGkcC9ixPU-QkScoRBVxtPPzVjrQ&index=10&pp=iAQB
 
@@ -20,11 +21,20 @@ export default function App() {
     })
   }
 
+  const submitHandler = (text) => {
+    setTodos((prevTodos) => {
+      return [
+        {text: text, key: Math.random().toString()},
+        ...prevTodos
+      ]
+    })
+  }
+
   return (
     <View style={styles.container}>
       <Header/>
       <View style={styles.content}>
-        {/* to do form */}
+        <AddTodo submitHandler={submitHandler}/>
         <View style={styles.list}>
           <FlatList
             data={todos}
@@ -34,7 +44,6 @@ export default function App() {
           />
         </View>
       </View>
-
     </View>
   );
 }
